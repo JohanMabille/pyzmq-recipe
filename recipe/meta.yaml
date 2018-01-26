@@ -10,7 +10,14 @@ source:
   sha256: 0322543fff5ab6f87d11a8a099c4c07dd8a1719040084b6ce9162bcdf5c45c9d
 
 build:
-  number: 2
+  noarch: ''
+  noarch_python: false
+  features:
+    - cling
+    - vc14    # [win]
+  skip: true  # [win and py<35]
+  number: '0'
+  string: 'cling_0'
 
 # On Windows ZeroMQ is bundled with pyzmq.
 # On Windows pyzmq includes tweetnacl so libsodium is not used.

@@ -5,7 +5,7 @@ env:
   matrix:
   - CONDA_PY=36
   global:
-  - secure: HGpsWgAmQajY9cXdkYXJfYvwEv25yOSpDhg2NSz4D8llUPuWCZLBQPKS0l+qtb6NK2MEGSaYYor8WMBpXiFZ53Y4JryTVz8u6d6GWyiF331WGMIZBDFH4/XPCACF+vJQh4m7D1Ec2p34vEe9GXyxIvmzFsuVLpevSJMwVX3Y6vNIU+m2rP7BkVBJl4CF2J6uON0qCqE69vDwTb/12eY+4XJGmDSNekU9cVL2DuUdDXFnKUHAf2ZpfRNetRpsrVzF7MGnChR3LNgwo0WvKyvDZRJRr+Nzpi0guvDScw0MNbLJaZB/TToDzcoA91u3Z4UjGPEkkiP8CfPWhIrcCmFIk7V4bcD/2PCgillveu34XdulOlOVroRQx2EpnAh73HBoOK5yZPXD2SHpsmNRo8UsTHtQuaZRrv1PWV+cAi0pMgh4OKU4Rn4uf+Z636A8ZJaRk7m2jyPqBJf+7VFR3AReonfunWk04XYN3c5PGNqGJaWsE2A9q7F7DACN2KEaZ7uhGeqYURRh5OB1HnQPebl3moMxYVpRNcyurKEnzK48XPt6tOkUim6u4xD7iWmpLkxEYYa/pHref4Y1x+G/4EDdY67LIoTm1RPLAfFxInfj+BDJ+gypbC4W1pQVl7MST6T9l1L/e3FITBKMC31BMnzDBAH9eylUebUrvFb7CVcNQdw=
+  - secure: V4WC9ZyeEV6KCf8MQFadRtdqUhZtsGdvVULpatSMCdIZnmaK2agXdeO/fHXnAL2GexjP9d8UkNo4d703pAZZup/9tRXO5p1W3iC65t+Vm9rxgVXYDb5Qs4mqQHpXNGtpKQlhEEBgaMa+krt7JR19/vsY9JwKnK4h8TJHBNK4FwKruC4Fv+PL6M7ziPe33tf5hr4bFWx5Kbddi373F7QLEDKHln6qb//4zot+o7gmRsUOUAHXey6v0KJBPdK0x/MqwU8uhBAJaARFtW4FNPW3tD9B14E9zdN3C8rAojUyulrY++lWv6+tR60RwIP5kj/MnKQvhtXWLZ5SH+3oadbcEgSPs7S76goPvEGS6Ry1vdiDJR3psxW+Z1B1n4SeY+PBbspGFgIR02lDDXRmWl4UaPJQUZdwJM8B8JkuiLDoCK5x7pT19/OgRBvkDe/5j8kyg6r/tLe/vYQvwd8RzreeoDk/nPKwpXu/yBFMRU6X6DFl33RwU+FoBHW8Gkd+pfHvdM27qR6LAl+Tg5VJYBGQuEUUr+Iu+yRvgLZorRo74TFGBSPSXUjgT4PO3wBGToC+QO19UUbupnmMh9MNdErUpZ6WHRaceKub9Xqho7VTHLyd/JrTXKtK9FmCke5by5BSQlKE8LzJHeHFZl5Irj6qb1t5RnLiaFbkpT0ZwjxlW2U=
 before_install:
 - |
   (curl https://raw.githubusercontent.com/conda-forge/conda-forge-build-setup-feedstock/master/recipe/ff_ci_pr_build.py | \
@@ -32,10 +32,10 @@ install:
   conda config --remove channels defaults
   conda config --add channels defaults
   conda config --add channels conda-forge
-  conda config --add channels gouarin
+  conda config --add channels QuantStack
   conda config --set show_channel_urls true
   conda install --yes --quiet conda-forge-build-setup
   source run_conda_forge_build_setup
 script:
 - conda build ./recipe
-- upload_or_check_non_existence ./recipe conda-forge --channel=main
+- upload_or_check_non_existence ./recipe QuantStack --channel=main
